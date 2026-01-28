@@ -48,9 +48,9 @@ This project requires a **Full-Stack Implementation** including Frontend, Backen
 
 ### 2. Update Your Project Info
 Edit this README to include:
-* **Project Name & Description**
-* **Tech Stack** (e.g., React + Spring Boot + Postgres)
-* **How to Run** (Instructions for Local & Docker execution)
+* **Project Name & Description:** Meal Prep Application
+* **Tech Stack** React + Java + Spring Boot + PostgreSQL + Auth0
+* **How to Run** TBD
 
 ---
 *This repository is for academic use. Do not commit secrets/API keys.*
