@@ -53,5 +53,21 @@ Edit this README to include:
 * **How to Run** TBD
 * **Project Description:** Meal Plan application that allows users to add recipes, create meal plans, calculate nutritional values, and create grocery lists in one place. 
 
+
+
+### 3. File Structure - Backend
+* **controllers** Handle the HTTP requests
+* **models** Business logic
+* **services** Database access
+* **repositories** Data structures
+* **middleware** token verification
+* **utils** helpers
+
+### 3. File Structure - Frontend
+* **components** reusable UI pieces 
+* **pages** route-level screens
+* **hooks** custom logic
+* **services** API calls, helpers
+
 ---
 *This repository is for academic use. Do not commit secrets/API keys.*
