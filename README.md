@@ -1,73 +1,58 @@
-# SWENG 861: Capstone Project Starter
-
-This is the official starter repository for the **Course Capstone Project**.
-
-Unlike the Weekly Assignments, this project is **Open Domain**. You will use this repository to build your flagship application (Web, Mobile, IoT, or AI) from Week 1 through Week 7.
-
-## 📂 Repository Structure
-
-You are required to maintain a clean structure to facilitate grading and architecture reviews:
-
-/
-├── .github/
-│   └── workflows/          # [DevOps] CI/CD Pipelines (Build, Test, Deploy)
-├── docs/                   # [Documentation] Architecture diagrams, Proposal
-├── src/
-│   ├── client/             # [Frontend] React / Vue / Mobile App source code
-│   └── server/             # [Backend] API / Microservices source code
-├── ops/                    # [SRE & Infrastructure]
-│   ├── docker/             # Docker Compose & Container configs
-│   └── observability/      # [Dashboard] Prometheus.yml, Grafana Dashboards, Screenshots
-├── tests/                  # End-to-End (E2E) Test Suites
-└── README.md               # The Main Project Documentation
-
-
-# SWENG 861: Capstone Project Starter
-
-This is the official starter repository for the **Course Capstone Project**.
-
-This project requires a **Full-Stack Implementation** including Frontend, Backend, DevOps Automation, and SRE Observability.
-
-## 📂 Repository Structure
-
-| Folder | Purpose |
-| :--- | :--- |
-| **`.github/workflows`** | **DevOps:** Place your CI/CD YAML files here (e.g., `ci.yml`). |
-| **`src/client`** | **Frontend:** Your Web or Mobile application code (React, Vue, Flutter). |
-| **src/server`** | **Backend:** Your API and Database logic (Node, Python, Java). |
-| **`ops/docker`** | **Infrastructure:** Dockerfiles and `docker-compose.yml` to run the stack. |
-| **`ops/observability`** | **SRE/Dashboard:** Prometheus configs, Grafana JSON exports, or screenshots of your monitoring dashboard. |
-| **`docs/`** | **Design:** Your Week 2 Proposal and Architecture diagrams. |
-
-## 🚀 How to Start
-
-### 1. Create Your Repo
-1.  Click **"Use this template"** above.
-2.  Name your repository: `sweng861-capstone-<yourPSUid>`
-3.  Set visibility to **Public** (or Private + invite Instructor).
-
-### 2. Update Your Project Info
-Edit this README to include:
-* **Project Name & Description:** Meal Prep Application
-* **Tech Stack** React + Java + Spring Boot + PostgreSQL + Auth0
-* **How to Run** TBD
+# SWENG 861: Capstone Project
+* **Project Name:** Meal Plan Application
+* **Project Description:** This application allows the user to create custom recipes, add ingredients, save and view recipes, create meal plans, and add recipes to specific dates and meal types.
+* **Tech Stack** 
+*Backend:* Java + Maven, PostgreSQL, Google Auth, Docker
+*Frontend:* React + Vite, JavaScript, Docker
 * **Project Description:** Meal Plan application that allows users to add recipes, create meal plans, calculate nutritional values, and create grocery lists in one place. 
 
-
-
-### 3. File Structure - Backend
+### File Structure - Backend
 * **controllers** Handle the HTTP requests
 * **models** Business logic
 * **services** Database access
-* **repositories** Data structures
-* **middleware** token verification
-* **utils** helpers
 
-### 3. File Structure - Frontend
+### File Structure - Frontend
 * **components** reusable UI pieces 
 * **pages** route-level screens
 * **hooks** custom logic
 * **services** API calls, helpers
+### Dependencies
+* Java 21
+* Maven
+* Node.js + npm
+* PostgreSQL
+* Docker (not fully implemented, in the future)
 
----
-*This repository is for academic use. Do not commit secrets/API keys.*
+### Environment variables
+* Create a .env.local file in /backend:
+DB_URL=jdbc:postgresql://localhost:5432/mealplan
+DB_USER=your_username
+DB_PASSWORD=your_password
+
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+GOOGLE_REDIRECT_URI=http://localhost:8080/api/auth/callback
+SESSION_SECRET=any_random_string
+
+### Google Auth - not pushed to repo
+serviceAccountKey.json
+
+### Database Setup
+* food: not used in current implementation
+* meal_plans: id (PK integer), owner_id (text), name (text), start_date (date), end_date (date)
+* meal_plan_entries:  id (PK integer), meal_plan_id (integer), recipe_id (integer), date (date), meal_type (text)
+* recipes: id (PK integer), owner_id (text), name (text), description (text), instructions (text)
+* recipe_ingredients: id (PK integer), recipe_id (integer), ingredient_name (text), quantity (text), unit (text)
+
+### How to run - local
+*Backend:*
+* mvn clean install
+* mvn exec:java
+--> starts on http://localhost:8080
+
+*Frontend:*
+* npm install
+* npm run dev
+--> starts on http://localhost:5173
+
+
